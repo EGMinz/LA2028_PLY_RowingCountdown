@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Countdown to Paralympic Rowing Final</title>
+<style>
+  body {
+    background: linear-gradient(135deg, #002654, #004aad);
+    color: #fff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+  }
+
+  #countdown {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #f5d300;
+    margin-bottom: 1rem;
+  }
+
+  .subtext {
+    font-size: 1.1rem;
+    color: #dcdcdc;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 15px;
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+</style>
+</head>
+<body>
+  <h1>Countdown to the LA 2028 Paralympic Rowing Final</h1>
+  <div id="countdown">Loading...</div>
+  <div class="subtext">LA 2028 — August 20, 2028</div>
+  <footer>“Every day counts.”</footer>
+
+  <script>
+    const targetDate = new Date("August 20, 2028 00:00:00");
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
+      const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+
+      const countdownEl = document.getElementById("countdown");
+
+      if (days > 0) {
+        countdownEl.textContent = `${days} days to go`;
+      } else if (days === 0) {
+        countdownEl.textContent = "Today is the day! 🏅";
+      } else {
+        countdownEl.textContent = `${Math.abs(days)} days since the final`;
+      }
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 60 * 60 * 1000); // update every hour
+  </script>
+</body>
+</html>
